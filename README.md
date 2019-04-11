@@ -10,8 +10,12 @@
 
 ``
 shell> git clone git@github.com:dtim/weatherbot.git
+
 shell> cd weatherbot
+
 shell> heroku login # при первом использовании CLI
+
 shell> heroku create
+
 shell> git push heroku master
 ``
