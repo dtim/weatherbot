@@ -1,5 +1,6 @@
 from geopy.geocoders import Nominatim
 from yr.libyr import Yr
+import json
 
 
 class ForecastService(object):
@@ -8,12 +9,14 @@ class ForecastService(object):
         self.geolocator = Nominatim(user_agent=user_agent)
 
     def weather(self, location_name: str):
-        forecast = None
+        forecast = {}
         try:
             location = self.geolocator.geocode(location_name)
             if location:
                 coordinates = (location.latitude, location.longitude, int(location.altitude))
                 meteo = Yr(coordinates=coordinates, language_name="en")
-                forecast = meteo.now(as_json=True)
+                response = meteo.now(as_json=True)
+                if response:
+                    forecast = json.loads(response)
         finally:
             return forecast
