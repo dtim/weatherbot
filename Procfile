@@ -1,2 +1,2 @@
-web: gunicorn app:weatherbot
+web: gunicorn app:app
 
