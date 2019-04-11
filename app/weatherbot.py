@@ -2,7 +2,7 @@ from flask import Flask
 from forecast import ForecastService
 
 
-fs = ForecastService(user_agent="dcn.weatherbot")
+fs = ForecastService(user_agent="dtim.weatherbot")
 app = Flask(__name__)
 
 
